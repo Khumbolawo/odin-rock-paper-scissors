@@ -1,0 +1,87 @@
+//getComputerChoice
+
+Understanding problem
+
+function that represents the computer playing the game
+computer has to randomly pick between 3 choices
+
+The algorithm
+
+- generate random number
+- round number down to percentage by multiplying 100
+- set intervals that will equal a choice 
+i.e 0 - 33 rock, 34 - 67 scissors and 68 - 99 paper
+
+The pseudocode
+
+generate random number
+multiply by 100 to turn to percentage
+make switch statement (maybe if statement is more appropriate here)
+case number is between 0 and 33, choice is rock
+create cases for the rest
+return choice
+
+//getHumanChoice
+
+Understanding problem
+
+function that will solicit and return the user's choice
+user will be promted by browser
+
+The Algorithm
+
+- prompt user for input
+- store input in variable
+- return that input to use later
+
+The pseudocode
+
+initialize choice variable with prompt
+enter user choice as a string in choice (add validation to make sure its only rock, paper or scissors?)
+validate input to a valid choice for the game
+if input is either rock, paper or scissors, store
+else, ask them to enter one of those
+return user choice
+
+
+//playRound
+
+Understanding problem
+
+function that will take human and computer choices and decide a winner
+announce winner and increment round win to winning player
+
+The Algorithm and Pseudocode
+
+//research better way to run these conditionals
+
+- init function with human and computer choice args
+- if human choice is rock and comp choice is rock
+	- print out tie
+	- increment both comp and human scores by 1
+- if human choice is rock and comp choice is scissors
+	- print out human win
+	- increment human score by 1
+- if human choice is rock and comp choice is paper
+	- print out comp win
+	- increment comp score by 1
+
+- if human choice is scissors and comp choice is rock
+	- print out comp win
+	- increment comp score by 1
+- if human choice is scissors and comp choice is scissors
+	- print out tie
+	- increment human and comp scores by 1
+- if human choice is scissors and comp choice is paper
+	- print out human win
+	- increment human score by 1
+
+- if human choice is paper and comp choice is rock
+	- print out human win
+	- increment human score by 1
+- if human choice is paper and comp choice is scissors
+	- print out comp win
+	- increment comp score by 1
+- if human choice is paper and comp choice is paper
+	- print out tie
+	- increment comp and human score by 1
