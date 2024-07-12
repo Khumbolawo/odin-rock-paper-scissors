@@ -9,23 +9,24 @@ function getComputerChoice() {
   if (result > 0 && result <= 33) {
     computerChoice = "rock";
     console.log(`The computer picks ${computerChoice}`);
+    return computerChoice;
   } else if (result > 33 && result <= 67) {
     computerChoice = "scissors";
     console.log(`The computer picks ${computerChoice}`);
+    return computerChoice;
   } else {
     computerChoice = "paper";
     console.log(`The computer picks ${computerChoice}`);
+    return computerChoice;
   }
 }
-
-getComputerChoice();
 
 //getHumanChoice
 
 function getHumanChoice() {
   //variable to ask for and store human choice
   let humanChoice = prompt("Pick between rock, paper and scissors: ");
-  humanChoice = humanChoice.toLowerCase;
+  humanChoice = humanChoice.toLowerCase();
   //validating the input
   if (
     humanChoice == "rock" ||
@@ -39,12 +40,15 @@ function getHumanChoice() {
   }
 }
 
-getHumanChoice();
-
 //player score variables
 
 let humanScore = 0;
 let computerScore = 0;
+
+// choice variables
+
+const humanSelection = getHumanChoice();
+const compSelection = getComputerChoice();
 
 //playRound
 
@@ -54,10 +58,14 @@ function playRound(humanChoice, computerChoice) {
     humanScore++;
     computerScore++;
   } else if (humanChoice == "rock" && computerChoice == "scissors") {
-    console.log(`${humanChoice} beats ${computerChoice}!`);
+    console.log(`${humanChoice} beats ${computerChoice}! You win!`);
     humanScore++;
   } else if (humanChoice == "rock" && computerChoice == "paper") {
-    console.log(`${computerChoice} beats ${humanChoice}!`);
+    console.log(`${computerChoice} beats ${humanChoice}! You lose, sorry.`);
     computerScore++;
+  } else {
+    console.log("something wierd happened");
   }
 }
+
+playRound(humanSelection, compSelection);
