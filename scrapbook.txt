@@ -85,3 +85,23 @@ The Algorithm and Pseudocode
 - if human choice is paper and comp choice is paper
 	- print out tie
 	- increment comp and human score by 1
+
+//playGame
+
+Understanding The Problem
+
+game needs to run for 5 rounds
+announce winner at the end of 5 rounds
+
+The Algorithm
+
+create roundsplayed variable
+wrap playround in a while loop
+game runs while roundsplayed variable is less than 5
+after 5 rounds, check scores
+if roundsplayed becomes 5, 
+	check value of humanscore and compscore
+	if humanscore is 5
+		human wins
+	if compscore is 5
+		comp wins

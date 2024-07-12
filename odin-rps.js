@@ -39,17 +39,10 @@ function getHumanChoice() {
     console.log("Please pick a valid move");
   }
 }
-
 //player score variables
 
 let humanScore = 0;
 let computerScore = 0;
-
-// choice variables
-
-const humanSelection = getHumanChoice();
-const compSelection = getComputerChoice();
-
 //playRound
 
 function playRound(humanChoice, computerChoice) {
@@ -88,4 +81,33 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-playRound(humanSelection, compSelection);
+//playGame
+
+function playGame() {
+  //roundsplayed
+  let roundsPlayed = 0;
+
+  while (roundsPlayed < 5) {
+    // choice variables
+    const humanSelection = getHumanChoice();
+    const compSelection = getComputerChoice();
+
+    playRound(humanSelection, compSelection);
+    roundsPlayed++;
+    console.log(`Rounds so far: ${roundsPlayed}`);
+    console.log(`Points so far \n
+        You: ${humanScore}. CPU: ${computerScore}
+        `);
+  }
+  if (humanScore > computerScore) {
+    console.log(
+      `You win! The score is you: ${humanScore} and CPU: ${computerScore}`
+    );
+  } else {
+    console.log(
+      `You lose. The score is you: ${humanScore} and CPU: ${computerScore}`
+    );
+  }
+}
+
+playGame();
