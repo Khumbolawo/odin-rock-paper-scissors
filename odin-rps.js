@@ -47,33 +47,39 @@ let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
   if (humanChoice == "rock" && computerChoice == "rock") {
-    console.log("It's a tie!");
+    console.log("Result: It's a tie!");
     humanScore++;
     computerScore++;
   } else if (humanChoice == "rock" && computerChoice == "scissors") {
-    console.log(`${humanChoice} beats ${computerChoice}! You win!`);
+    console.log(`Result: ${humanChoice} beats ${computerChoice}! You win!`);
     humanScore++;
   } else if (humanChoice == "rock" && computerChoice == "paper") {
-    console.log(`${computerChoice} beats ${humanChoice}! You lose, sorry.`);
+    console.log(
+      `Result: ${computerChoice} beats ${humanChoice}! You lose, sorry.`
+    );
     computerScore++;
   } else if (humanChoice == "scissors" && computerChoice == "rock") {
-    console.log(`${computerChoice} beats ${humanChoice}! You lose, sorry.`);
+    console.log(
+      `Result: ${computerChoice} beats ${humanChoice}! You lose, sorry.`
+    );
     computerScore++;
   } else if (humanChoice == "scissors" && computerChoice == "scissors") {
-    console.log("It's a tie!");
+    console.log("Result: It's a tie!");
     humanScore++;
     computerScore++;
   } else if (humanChoice == "scissors" && computerChoice == "paper") {
-    console.log(`${humanChoice} beats ${computerChoice}! You win!`);
+    console.log(`Result: ${humanChoice} beats ${computerChoice}! You win!`);
     humanScore++;
   } else if (humanChoice == "paper" && computerChoice == "rock") {
-    console.log(`${humanChoice} beats ${computerChoice}! You win!`);
+    console.log(`Result: ${humanChoice} beats ${computerChoice}! You win!`);
     humanScore++;
   } else if (humanChoice == "paper" && computerChoice == "scissors") {
-    console.log(`${computerChoice} beats ${humanChoice}! You lose, sorry.`);
+    console.log(
+      `Result: ${computerChoice} beats ${humanChoice}! You lose, sorry.`
+    );
     computerScore++;
   } else if (humanChoice == "paper" && computerChoice == "paper") {
-    console.log("It's a tie!");
+    console.log("Result: It's a tie!");
     humanScore++;
     computerScore++;
   } else {
