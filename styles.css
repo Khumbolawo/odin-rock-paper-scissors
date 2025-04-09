@@ -21,11 +21,24 @@ body {
     color: aliceblue;
 }
 
+#title .title-desc {
+    color: azure;
+}
+
 /* PLAY SECTION */
 
 /* Button section */
 #play-area {
     display: flex;
+    padding-bottom: 20px;
+    flex-direction: column;
+}
+
+#play-area .game-log {
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
 }
 /* Button container */
 
@@ -58,7 +71,7 @@ body {
 
 .play-buttons div {
     margin: 10px;
-    border: 2px solid;
+    border: 0px solid;
     border-radius: 5px;
     height: 250px;
     width: 250px;
@@ -74,7 +87,45 @@ body {
 
 /* RESULTS SECTION */
 
+#results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.results-title {
+    color: aliceblue;
+    font-weight: bold;
+    text-align: center;
+}
+
 .results-area {
     display: grid;
+    gap: 30px;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.results-area div {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    border: 0px solid;
+    border-radius: 5px;
+    background-color: silver;
+    height: 200px;
+    width: 200px;
+}
+
+.results-area p {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.results-area div h2 {
+    color: darkslategray;
+    font-size: 20px;
 }

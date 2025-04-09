@@ -9,6 +9,7 @@
   <body id="main">
     <section id="title">
       <h1 class="title-text">Rock, Paper Scissors Game</h1>
+      <p class="title-desc">Pick between rock, paper and scissors to start.</p>
     </section>
     <section id="play-area">
       <div class="play-buttons">
@@ -22,11 +23,23 @@
           <button>SCISSORS</button>
         </div>
       </div>
+      <div class="game-log">
+        <p>You picked [human choice]. CPU picked [cpu choice]. [Winner] wins!</p>
+      </div>
     </section>
     <section id="results">
+      <div class="results-title">
+        <h1>Results</h1>
+      </div>
       <div class="results-area">
-          <div class="human">Human results here</div>
-          <div class="cpu">CPU results here</div>
+          <div class="human">
+            <h2>Human</h2>
+            <p>2</p>
+          </div>
+          <div class="cpu">
+            <h2>CPU</h2>
+            <p>4</p>
+          </div>
       </div>
     </section>
     <script src="/odin-rps.js"></script>
