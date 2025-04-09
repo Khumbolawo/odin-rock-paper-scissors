@@ -12,7 +12,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: grey;
+    background-color: rgba(0, 0, 0, 0.774);
 }
 
 /* title section */
