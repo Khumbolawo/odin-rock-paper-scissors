@@ -93,7 +93,6 @@ function playGame() {
   //roundsplayed
   let roundsPlayed = 0;
 
-  while (roundsPlayed < 5) {
     // choice variables
     const humanSelection = getHumanChoice();
     const compSelection = getComputerChoice();
@@ -113,7 +112,4 @@ function playGame() {
     console.log(
       `You lose. The score is you: ${humanScore} and CPU: ${computerScore}`
     );
-  }
 }
-
-playGame();
