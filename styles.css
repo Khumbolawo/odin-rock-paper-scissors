@@ -40,6 +40,10 @@ body {
 }
 
 #play-area .game-log {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     color: aliceblue;
     text-align: center;
 }
@@ -86,6 +90,19 @@ body {
 .play-buttons button {
     height: 50px;
     width: 150px;
+}
+
+#reset-button {
+    background-color: green;
+    border: 0px solid;
+    border-radius: 5px;
+    padding: 10px;
+    color: aliceblue;
+    font-weight: bold;
+}
+
+#reset-button:hover {
+    background-color: rgb(2, 102, 2);
 }
 
 /* RESULTS SECTION */

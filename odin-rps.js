@@ -40,13 +40,23 @@ function getComputerChoice() {
 
 function updateRounds () {
   if (roundsPlayed == 5) {
-    gameLog.textContent = "Game Over! Reload the page";
+    gameLog.textContent = "Game Over! Press reset button to play again";
     return;
   }else{
     roundsPlayed++;
     rounds.textContent = `Round ${roundsPlayed}`;
   }
   
+}
+
+function resetGame() {
+  humanScore = 0;
+  computerScore = 0;
+  roundsPlayed = 1;
+  humanHtml.textContent = humanScore;
+  computerHtml.textContent = computerScore;
+  rounds.textContent = `Round ${roundsPlayed}`;
+  gameLog.textContent = "Pick your weapon!";
 }
 
 // main game logic
