@@ -12,9 +12,46 @@ humanHtml.textContent = humanScore;
 computerHtml.textContent = computerScore;
 rounds.textContent = `Round ${roundsPlayed}`;
 
+// adding the reset button to a variable for later
+let resetButton = document.querySelector("#reset-button");
+resetButton.style.display = "none";
+
 let gameLog = document.querySelector(".game-log-text");
 gameLog.textContent = "Pick your weapon!";
 playGame();
+
+// Modify the checkGameOver function to check for 5 wins
+function checkGameOver() {
+  if (humanScore >= 5 || computerScore >= 5) {
+      // Game is over when either player reaches 5 wins
+      let resultMessage = "";
+      
+      if (humanScore >= 5 && computerScore >= 5) {
+          resultMessage = `Game over! It's a tie! Final score: You ${humanScore}, Computer ${computerScore}`;
+      } else if (humanScore >= 5) {
+          resultMessage = `Game over! You win! Final score: You ${humanScore}, Computer ${computerScore}`;
+      } else if (computerScore >= 5) {
+          resultMessage = `Game over! You lose! Final score: You ${humanScore}, Computer ${computerScore}`;
+      }
+      
+      // Display game over message
+      gameLog.textContent = `\n${resultMessage}`;
+      
+      // Show the reset button
+      resetButton.style.display = "block";
+      
+      // Disable the game buttons
+      document.querySelector("#rock").disabled = true;
+      document.querySelector("#paper").disabled = true;
+      document.querySelector("#scissors").disabled = true;
+      
+      return true; // Game is over
+  }
+  
+  return false; // Game continues
+}
+
+resetButton.addEventListener('click', resetGame);
 
 
 function getComputerChoice() {
@@ -39,55 +76,61 @@ function getComputerChoice() {
 }
 
 function updateRounds () {
-  if (roundsPlayed == 5) {
-    gameLog.textContent = "Game Over! Press reset button to play again";
-    return;
-  }else{
     roundsPlayed++;
     rounds.textContent = `Round ${roundsPlayed}`;
-  }
   
 }
 
 function resetGame() {
+  //reset all scores and display element when reset button is pressed
   humanScore = 0;
   computerScore = 0;
   roundsPlayed = 1;
   humanHtml.textContent = humanScore;
   computerHtml.textContent = computerScore;
   rounds.textContent = `Round ${roundsPlayed}`;
-  gameLog.textContent = "Pick your weapon!";
+  gameLog.textContent = "Game reset! Make your choice...";
+
+  // Hide the reset button
+  resetButton.style.display = "none";
+    
+  // Re-enable the game buttons
+  document.querySelector("#rock").disabled = false;
+  document.querySelector("#paper").disabled = false;
+  document.querySelector("#scissors").disabled = false;
 }
 
 // main game logic
-function handleChoice(choice) {
-  const humanChoice = choice;
-  gameLog.textContent = `You picked ${humanChoice}. `;
-
-  // delay so that player sees their choise before the computer's choice shows
-  setTimeout(() => {
-    const compChoice = getComputerChoice();
-    
-    // another delay to improve the game feel
-    setTimeout(() => {
-      playRound(humanChoice, compChoice);
-      getResultText(humanChoice, compChoice);
-
-      // Update the scores after a delay
+function handleChoice(humanChoice) {
+  // Only proceed if the game is not over
+  if (humanScore < 5 && computerScore < 5) {
+      // Clear previous game log and show player's choice
+      gameLog.textContent = `You picked ${humanChoice}. `;
+      
+      // Get computer's choice and play the round after a small delay
       setTimeout(() => {
-        updateScores();
-
-        // Update to the next round after a delay
-        setTimeout(() => {
-          updateRounds();
-          gameLog.textContent = "Pick your weapon!";
-      }, 2000);
-      }, 2000);
-      
-      
-    }, 2000);
-
-  }, 2000);
+          // Get computer choice
+          const computerChoice = getComputerChoice();
+          
+          // Add a small pause before showing the result
+          setTimeout(() => {
+              // Play the round with the choices
+              playRound(humanChoice, computerChoice);
+              
+              // Update round count and display
+              roundsPlayed++;
+              rounds.textContent = `Round ${roundsPlayed}`;
+              
+              // Update scores on the page
+              updateScores();
+              
+              // Add the round result to the game log
+              getResultText(humanChoice, computerChoice);
+              
+              // Check if game is over after updating everything
+              checkGameOver();
+          }, 500);
+      }, 1000);
 
   // Helper function to get result text based on the choices
   function getResultText(humanChoice, computerChoice) {
@@ -106,16 +149,11 @@ function handleChoice(choice) {
   
   // function to update scores on page
   function updateScores() {
-    if (humanScore == 5 || computerScore == 5) {
-      gameLog.textContent = "Game Over! Reload the page";
-      humanHtml.textContent = humanScore;
-      computerHtml.textContent = computerScore;
-    } else {
-      humanHtml.textContent = humanScore;
-      computerHtml.textContent = computerScore;
-    }
+    humanHtml.textContent = humanScore;
+    computerHtml.textContent = computerScore;
   }
   
+}
 }
 
 function playRound(humanChoice, computerChoice) {
