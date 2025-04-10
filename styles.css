@@ -41,7 +41,6 @@ body {
 
 #play-area .game-log {
     color: aliceblue;
-    font-weight: bold;
     text-align: center;
 }
 /* Button container */
@@ -107,6 +106,7 @@ body {
 
 .results-title h1 {
     font-size: 50px;
+    margin-top: 0px;
 }
 
 .results-area {

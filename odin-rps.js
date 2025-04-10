@@ -12,6 +12,8 @@ humanHtml.textContent = humanScore;
 computerHtml.textContent = computerScore;
 rounds.textContent = `Round ${roundsPlayed}`;
 
+let gameLog = document.querySelector(".game-log-text");
+playGame();
 
 //getComputerChoice
 function getComputerChoice() {
@@ -35,21 +37,33 @@ function getComputerChoice() {
   }
 }
 
+
 function getHumanChoice() {
-  //variable to ask for and store human choice
-  let humanChoice = prompt("Pick between rock, paper and scissors: ");
-  humanChoice = humanChoice.toLowerCase();
-  //validating the input
-  if (
-    humanChoice == "rock" ||
-    humanChoice == "scissors" ||
-    humanChoice == "paper"
-  ) {
-    console.log(`You picked ${humanChoice}`);
+  const rockButton = document.querySelector("#rock");
+  const paperButton = document.querySelector("#paper");
+  const scissorsButton = document.querySelector("#scissors");
+
+  rockButton.addEventListener('click', () => handleChoice('rock'));
+  paperButton.addEventListener('click', () => handleChoice('paper'));
+  scissorsButton.addEventListener('click', () => handleChoice('scissors'));
+
+  function handleChoice(choice) {
+    const humanChoice = choice;
+    //validating the input
+    if (
+      humanChoice == "rock" ||
+      humanChoice == "scissors" ||
+      humanChoice == "paper"
+    ) {
+      gameLog.textContent = `You picked ${humanChoice}`;
+      return humanChoice;
+    } else {
+      gameLog.textContent = "Pick a valid move";
+    }
+    
     return humanChoice;
-  } else {
-    console.log("Please pick a valid move");
   }
+  
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -97,21 +111,21 @@ function playRound(humanChoice, computerChoice) {
 function playGame() {
     // get choice from cpu and user 
     const humanSelection = getHumanChoice();
-    const compSelection = getComputerChoice();
+  //   const compSelection = getComputerChoice();
 
-    playRound(humanSelection, compSelection);
-    roundsPlayed++;
-    console.log(`Rounds so far: ${roundsPlayed}`);
-    console.log(`Points so far \n
-        You: ${humanScore}. CPU: ${computerScore}
-        `);
-  }
-  if (humanScore > computerScore) {
-    console.log(
-      `You win! The score is you: ${humanScore} and CPU: ${computerScore}`
-    );
-  } else {
-    console.log(
-      `You lose. The score is you: ${humanScore} and CPU: ${computerScore}`
-    );
+  //   playRound(humanSelection, compSelection);
+  //   roundsPlayed++;
+  //   console.log(`Rounds so far: ${roundsPlayed}`);
+  //   console.log(`Points so far \n
+  //       You: ${humanScore}. CPU: ${computerScore}
+  //       `);
+  // }
+  // if (humanScore > computerScore) {
+  //   console.log(
+  //     `You win! The score is you: ${humanScore} and CPU: ${computerScore}`
+  //   );
+  // } else {
+  //   console.log(
+  //     `You lose. The score is you: ${humanScore} and CPU: ${computerScore}`
+  //   );
 }
