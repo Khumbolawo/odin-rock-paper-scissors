@@ -13,6 +13,7 @@ computerHtml.textContent = computerScore;
 rounds.textContent = `Round ${roundsPlayed}`;
 
 let gameLog = document.querySelector(".game-log-text");
+gameLog.textContent = "Pick your weapon!";
 playGame();
 
 
@@ -38,8 +39,14 @@ function getComputerChoice() {
 }
 
 function updateRounds () {
-  roundsPlayed++;
-  rounds.textContent = `Round ${roundsPlayed}`;
+  if (roundsPlayed == 5) {
+    gameLog.textContent = "Game Over! Reload the page";
+    return;
+  }else{
+    roundsPlayed++;
+    rounds.textContent = `Round ${roundsPlayed}`;
+  }
+  
 }
 
 // main game logic
@@ -63,6 +70,7 @@ function handleChoice(choice) {
         // Update to the next round after a delay
         setTimeout(() => {
           updateRounds();
+          gameLog.textContent = "Pick your weapon!";
       }, 2000);
       }, 2000);
       
@@ -88,8 +96,14 @@ function handleChoice(choice) {
   
   // function to update scores on page
   function updateScores() {
-    humanHtml.textContent = humanScore;
-    computerHtml.textContent = computerScore;
+    if (humanScore == 5 || computerScore == 5) {
+      gameLog.textContent = "Game Over! Reload the page";
+      humanHtml.textContent = humanScore;
+      computerHtml.textContent = computerScore;
+    } else {
+      humanHtml.textContent = humanScore;
+      computerHtml.textContent = computerScore;
+    }
   }
   
 }
