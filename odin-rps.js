@@ -2,6 +2,7 @@
 
 let humanScore = 0;
 let computerScore = 0;
+let roundsPlayed = 0;
 
 // set scores on page to zeroes and reset rounds
 let humanHtml = document.querySelector(".human-score");
@@ -9,11 +10,11 @@ let computerHtml = document.querySelector(".cpu-score");
 let rounds = document.querySelector(".rounds")
 humanHtml.textContent = humanScore;
 computerHtml.textContent = computerScore;
+rounds.textContent = `Round ${roundsPlayed}`;
 
 
 //getComputerChoice
 function getComputerChoice() {
-  //init variable to store choice
   let computerChoice;
   //generate random number between 0 and 100
   let result = Math.floor(Math.random() * 100);
@@ -34,8 +35,6 @@ function getComputerChoice() {
   }
 }
 
-//getHumanChoice
-
 function getHumanChoice() {
   //variable to ask for and store human choice
   let humanChoice = prompt("Pick between rock, paper and scissors: ");
@@ -52,8 +51,6 @@ function getHumanChoice() {
     console.log("Please pick a valid move");
   }
 }
-
-//playRound
 
 function playRound(humanChoice, computerChoice) {
   if (humanChoice == "rock" && computerChoice == "rock") {
@@ -97,13 +94,8 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-//playGame
-
 function playGame() {
-  //roundsplayed
-  let roundsPlayed = 0;
-
-    // choice variables
+    // get choice from cpu and user 
     const humanSelection = getHumanChoice();
     const compSelection = getComputerChoice();
 
