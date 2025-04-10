@@ -3,9 +3,10 @@
 let humanScore = 0;
 let computerScore = 0;
 
-// set scores on page to zeroes
+// set scores on page to zeroes and reset rounds
 let humanHtml = document.querySelector(".human-score");
 let computerHtml = document.querySelector(".cpu-score");
+let rounds = document.querySelector(".rounds")
 humanHtml.textContent = humanScore;
 computerHtml.textContent = computerScore;
 
