@@ -1,3 +1,15 @@
+//beginning of game after reload. reset player score variables
+
+let humanScore = 0;
+let computerScore = 0;
+
+// set scores on page to zeroes
+let humanHtml = document.querySelector(".human-score");
+let computerHtml = document.querySelector(".cpu-score");
+humanHtml.textContent = humanScore;
+computerHtml.textContent = computerScore;
+
+
 //getComputerChoice
 function getComputerChoice() {
   //init variable to store choice
@@ -39,10 +51,7 @@ function getHumanChoice() {
     console.log("Please pick a valid move");
   }
 }
-//player score variables
 
-let humanScore = 0;
-let computerScore = 0;
 //playRound
 
 function playRound(humanChoice, computerChoice) {
