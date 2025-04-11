@@ -27,11 +27,11 @@ function checkGameOver() {
       let resultMessage = "";
       
       if (humanScore >= 5 && computerScore >= 5) {
-          resultMessage = `Game over! It's a tie! Final score: You ${humanScore}, Computer ${computerScore}`;
+          resultMessage = `Game over! It's a tie. Final score: You ${humanScore}, Computer ${computerScore}`;
       } else if (humanScore >= 5) {
-          resultMessage = `Game over! You win! Final score: You ${humanScore}, Computer ${computerScore}`;
+          resultMessage = `Game over! You win. Final score: You ${humanScore}, Computer ${computerScore}`;
       } else if (computerScore >= 5) {
-          resultMessage = `Game over! You lose! Final score: You ${humanScore}, Computer ${computerScore}`;
+          resultMessage = `Game over! You lose. Final score: You ${humanScore}, Computer ${computerScore}`;
       }
       
       // Display game over message
